@@ -1,5 +1,7 @@
 package com.csplusplus;
 
+import java.util.Arrays;
+
 public class Unit6 {
 
     // 1. Implement a method that takes an array of integers and returns the sum of all elements.
@@ -30,16 +32,24 @@ public class Unit6 {
     // 3. Implement a method that takes an array and returns a new array with the elements in reverse order.
     // Instructions: Create a new array of the same size, and fill it with elements from the original array in reverse order.
     public static int[] reverseArray(int[] array) {
-        for (int i = 0; i > array.length; i++)
+        int[] returnArray = array.clone();
+        for (int i = 0; i < array.length; i++)
         {
-            array[array.length - i] = array[i];
+            returnArray[array.length - 1  - i] = array[i];
         }
-        return array;  // Placeholder return value, replace with the reversed array.
-    }
+        System.out.println(Arrays.toString(array));
+        System.out.println(Arrays.toString(returnArray));
+        System.out.println();
+        return returnArray;  // Placeholder return value, replace with the reversed array.
+    }     
 
     // 4. Implement a method that checks whether the given array is sorted in ascending order.
     // Instructions: Iterate through the array and check if each element is greater than or equal to the previous element.
     public static boolean isSorted(int[] array) {
+        if (array.length == 0)
+        {
+            return true;
+        }
         int lastNum = array[0];
         for (int item : array)
         {
